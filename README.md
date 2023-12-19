@@ -53,8 +53,22 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 1. Add some sample tests using Playwright
 2. Find reporting tools for playwright
    2. Allure (using allure-pytest) - https://github.com/microsoft/playwright-python/issues/1265
+   3. Lambdatest (Seems have a freemium plan)- https://www.lambdatest.com/support/docs/pytest-on-hyperexecute/
    3. Report portal:
       4. https://github.com/reportportal/client-Python
+      5. https://github.com/reportportal/agent-python-pytest
       5. https://pypi.org/project/pytest-reportportal/
+   6. Squadcast (?) : https://pypi.org/project/pytest-squadcast/
+   7. Calipe PRO: 
+      8. https://app.calliope.pro/users/8401/dashboard
+      9. https://docs.calliope.pro/supported-tools/pytest/
+   7. Uploader to remote servers (Allure, pytest's html reports): https://pypi.org/project/pytest-upload-report/
+   10. Katalon TestOps - Has a free plan, and Manual tests management:
+       11. https://katalon.com/pricing
+       12. https://docs.katalon.com/docs/katalon-platform/analyze/reports/upload-test-reports/upload-reports-from-other-framework/upload-test-reports-from-pytest-to-katalon-testops
+   8. Zebrunner:
+      9. Manual and Automation tool, have a free plan: https://zebrunner.com/testing-platform
+      10. https://pypi.org/project/pytest-zebrunner/
+   11. JSON (maybe for exporting into other formats) - https://pypi.org/project/pytest-json-report/
 3. Configure CI/CD for app, using GitHub actions 
 4. 
