@@ -40,7 +40,7 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 2. Run `git submodules update --init --recursive`
 3. In the project root dir - run `poetry install`
 4. Activate created env: `.\.venv\Scripts\activate`
-4. Install webdrivers `playwright install`
+5. Install webdrivers `playwright install`
 
 
 ---
@@ -49,6 +49,11 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 
 ## TODO
  
-1. Find reporting tools for playwright
+1. Add some sample tests using Playwright
+2. Find reporting tools for playwright
    2. Allure (using allure-pytest) - https://github.com/microsoft/playwright-python/issues/1265
-3. 
+   3. Report portal:
+      4. https://github.com/reportportal/client-Python
+      5. https://pypi.org/project/pytest-reportportal/
+3. Configure CI/CD for app, using GitHub actions 
+4. 
