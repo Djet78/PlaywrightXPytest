@@ -1,0 +1,2 @@
+# PlaywrightXPytest
+Playwright sample project
