@@ -40,7 +40,8 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 2. Run `git submodules update --init --recursive`
 3. In the project root dir - run `poetry install`
 4. Activate created env: `.\.venv\Scripts\activate`
-5. Install webdrivers `playwright install`
+5. Apply pre-commit hooks: `pre-commit install`
+6. Install webdrivers `playwright install`
 
 
 ---
