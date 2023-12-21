@@ -54,6 +54,13 @@ All commands should be executed inside virtualenv, or be prefixed with `poetry r
 Execute tests
 1. `pytest` - Run everything that project have
 2. `pytest -m "<scope>"` - run all tests that marked by <scope>
+3. `pytest -m "<scope>" --browser <driver>` - run all marked tests on mentioned driver
+4. `pytest --browser <driver>` - run tests on a specified driver 
+5. `pytest --browser <driver_1> --browser <driver_2>` - run tests on all mentioned drivers
+6. `pytest --numprocesses 2` - run tests in parallel. Recommend to use no more than half of logical CPU cores.
+7. `pytest --slowmo 3000` - adds a ms delay between webdriver actions. 
+8. `pytest --device="Galaxy S III"` - emulate devices settings and orientation. List of devices: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
+
 
 `playwright codegen <url>` - start tests recording tool
 
@@ -62,9 +69,10 @@ Execute tests
 ## TODO
  
 1. Add some sample tests using Playwright
+   2. For API: https://playwright.dev/python/docs/api-testing
 2. Find reporting tools for playwright
    2. Allure (using allure-pytest) - https://github.com/microsoft/playwright-python/issues/1265
-   3. Lambdatest (Seems have a freemium plan)- https://www.lambdatest.com/support/docs/pytest-on-hyperexecute/
+   3. Lambdatest (Seems it have a freemium plan)- https://www.lambdatest.com/support/docs/pytest-on-hyperexecute/
    3. Report portal:
       4. https://github.com/reportportal/client-Python
       5. https://github.com/reportportal/agent-python-pytest
@@ -81,5 +89,6 @@ Execute tests
       9. Manual and Automation tool, have a free plan: https://zebrunner.com/testing-platform
       10. https://pypi.org/project/pytest-zebrunner/
    11. JSON (maybe for exporting into other formats) - https://pypi.org/project/pytest-json-report/
-3. Configure CI/CD for app, using GitHub actions 
+3. Configure CI/CD for app, using GitHub actions: https://playwright.dev/python/docs/ci#github-actions
+   4. Trace recording could be useful for CI: https://playwright.dev/python/docs/trace-viewer
 4. 
