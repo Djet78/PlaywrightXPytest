@@ -47,6 +47,17 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 ---
 
 
+## Usage
+
+All commands should be executed inside virtualenv, or be prefixed with `poetry run`
+
+Execute tests
+1. `pytest` - Run everything that project have
+2. `pytest -m "<scope>"` - run all tests that marked by <scope>
+
+`playwright codegen <url>` - start tests recording tool
+
+
 
 ## TODO
  

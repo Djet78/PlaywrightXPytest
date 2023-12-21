@@ -9,3 +9,11 @@ def test_simple_search(page: Page):
     s_bar.search_for('Playwright')
 
     expect(s_bar.search_field).to_have_value('Playwright')
+
+
+def test_example(page: Page) -> None:
+    page.goto('https://demo.playwright.dev/todomvc/')
+    page.get_by_placeholder('What needs to be done?').click()
+    page.get_by_placeholder('What needs to be done?').fill('action 1')
+    page.get_by_placeholder('What needs to be done?').press('Enter')
+    expect(page.get_by_test_id('todo-title')).to_contain_text('action 1')
