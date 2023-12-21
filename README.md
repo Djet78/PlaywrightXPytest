@@ -61,9 +61,9 @@ Execute tests
 7. `pytest --slowmo 3000` - adds a ms delay between webdriver actions. 
 8. `pytest --device="Galaxy S III"` - emulate devices settings and orientation. List of devices: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
 
-
-`playwright codegen <url>` - start tests recording tool
-
+Playwright
+1. `playwright codegen <url>` - start tests recording tool.
+2. `playwright show-trace <full_file_path>` - see a test trace and debug it. 
 
 
 ## TODO
