@@ -1,4 +1,4 @@
-name: Run Regression
+name: Regression manual launch
 run-name: ${{ github.actor }} is launched regression tests 🚀
 on: workflow_dispatch
 
