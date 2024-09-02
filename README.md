@@ -2,7 +2,7 @@
 
 [//]: # ([![pre-commit]&#40;https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&#41;]&#40;https://github.com/pre-commit/pre-commit&#41;)
 
-# Playwright X Pytest X <report_tool>
+# Playwright X Pytest Allure
 Playwright in combination with Pytest test framework, and <report_tool> retorting example.
 
 #### Used python main packages:
@@ -15,17 +15,12 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 
 ## Setup for Windows
 
-[//]: # (### 1. Install Allure )
-
-[//]: # (1. Download Java 21 : https://www.oracle.com/java/technologies/downloads/)
-
-[//]: # (2. Set `JAVA_HOME` environment variable, point it to the java root folder.)
-
-[//]: # (3. Download and unpack latest allure release: https://github.com/allure-framework/allure2/releases)
-
-[//]: # (   1. Or using Scoop: https://allurereport.org/docs/gettingstarted-installation/#install-via-scoop-for-windows)
-
-[//]: # (4. Into `PATH` - add path to the allure.bat file. Ex: `*\allure\allure-2.24.1\bin`)
+### 1. Install Allure
+1. Download Java 21: https://www.oracle.com/java/technologies/downloads/
+2. Set `JAVA_HOME` environment variable, point it to the java root folder.
+3. Download and unpack latest allure release: https://github.com/allure-framework/allure2/releases
+1. Or using Scoop: https://allurereport.org/docs/gettingstarted-installation/#install-via-scoop-for-windows
+4. Into `PATH` - add path to the allure.bat file. Ex: `*\allure\allure-2.24.1\bin`
 
 
 ### 2. Install Poetry
@@ -37,7 +32,8 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 
 ### 3. Configure local project: 
 1. Clone the repo
-2. Run `git submodules update --init --recursive`
+
+[//]: # (2. Run `git submodules update --init --recursive`)
 3. In the project root dir - run `poetry install`
 4. Activate created env: `.\.venv\Scripts\activate`
 5. Apply pre-commit hooks: `pre-commit install`
@@ -91,4 +87,9 @@ Playwright
    11. JSON (maybe for exporting into other formats) - https://pypi.org/project/pytest-json-report/
 3. Configure CI/CD for app, using GitHub actions: https://playwright.dev/python/docs/ci#github-actions
    4. Trace recording could be useful for CI: https://playwright.dev/python/docs/trace-viewer
-4. 
+   5. Actions syntax: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows
+   6. Creds management: https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+   7. Context data reference: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#context-availability
+   7. Try to split crossbrowser runs using GitHub actions: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow
+4. Create a github job, to manually trigger the desired suite of tests.
+5. 

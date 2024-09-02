@@ -1,0 +1,29 @@
+name: Run Regression
+run-name: ${{ github.actor }} is launched regression tests 🚀
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.12"
+    - name: Install dependencies
+      run: |
+        sudo apt install pipx
+        pipx ensurepath
+        pipx install poetry
+        poetry install
+    - name: Install browsers
+      run: |
+        playwright install --with-deps
+    - name: Test with pytest
+      run: |
+        poetry run pytest
