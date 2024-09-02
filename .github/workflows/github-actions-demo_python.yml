@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Test Pytest configuration and launch
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
@@ -7,13 +7,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+    - name: Set up Python 3.12
+      uses: actions/actions/setup-python@v5
       with:
         python-version: "3.12"
-    - name: Install dependencies
-      run: |
-        sudo apt install pipx
+        cache: 'poetry'
+    - name: Install poetry and dependencies
+      run: | 
         pipx ensurepath
         pipx install poetry
         poetry install
