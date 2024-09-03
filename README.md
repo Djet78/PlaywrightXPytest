@@ -6,10 +6,11 @@
 Playwright in combination with Pytest test framework, and <report_tool> retorting example.
 
 #### Used python main packages:
-1. `playwright` - Test runner
-4. `requrests` - API interactions 
-5. `poetry` - Dependencies management
-6. `ruff` - Linter and formatting tool
+1. `playwright` - Test runner.
+4. `requrests` - API interactions. 
+5. `poetry` - Dependencies management.
+6. `ruff` - Linter and formatting tool.
+7. `pytest` - for test management and execution. 
 
 ---
 
@@ -27,7 +28,6 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 1. Install pipx via pip - https://github.com/pypa/pipx?tab=readme-ov-file
 2. Install poetry via pipx - https://python-poetry.org/docs/#installing-with-pipx 
 3. Add poetry executable into `PATH`. Ex: `c:\users\test\.local\bin`
-
 
 
 ### 3. Configure local project: 
@@ -48,17 +48,20 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 All commands should be executed inside virtualenv, or be prefixed with `poetry run`
 
 Execute tests
-1. `pytest` - Run everything that project have
-2. `pytest -m "<scope>"` - run all tests that marked by <scope>
-3. `pytest -m "<scope>" --browser <driver>` - run all marked tests on mentioned driver
-4. `pytest --browser <driver>` - run tests on a specified driver 
-5. `pytest --browser <driver_1> --browser <driver_2>` - run tests on all mentioned drivers
-6. `pytest --numprocesses 2` - run tests in parallel. Recommend to use no more than half of logical CPU cores.
-7. `pytest --slowmo 3000` - adds a ms delay between webdriver actions. 
-8. `pytest --device="Galaxy S III"` - emulate devices settings and orientation. List of devices: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
+1. `pytest` - Run everything that project have.
+2. `pytest -m "<scope>"` - Run all tests that marked by <scope>.
+3. `pytest -m "<scope>" --browser <driver>` - Run all marked tests on mentioned driver.
+4. `pytest --browser <driver>` - Run tests on a specified driver.
+5. `pytest --browser <driver_1> --browser <driver_2>` - Run tests on all mentioned drivers.
+6. `pytest --numprocesses 2` - Run tests in parallel. Recommend to use no more than half of logical CPU cores.
+7. `pytest --slowmo 3000` - Adds a ms delay between webdriver actions. 
+8. `pytest --device="Galaxy S III"` - Emulate devices settings and orientation. List of devices: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
+9. `pytest -m "<scope>"` - Run all tests that marked by <scope>.
+10. `pytest --alluredir allure-results` - Run test and collect results data for allure.
+11. `allure serve allure-results` - Launch allure result local server.
 
 Playwright
-1. `playwright codegen <url>` - start tests recording tool.
+1. `playwright codegen <url>` - start tests recording tool on specified web page's url.
 2. `playwright show-trace <full_file_path>` - see a test trace and debug it. 
 
 

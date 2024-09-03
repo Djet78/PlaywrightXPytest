@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from playwright.sync_api import Page, expect
@@ -5,6 +6,10 @@ from playwright_pytest.playwright_pytest.ui_comp import PlaywrightSearch
 
 
 @pytest.mark.ui()
+@allure.title('Test Simple Search')
+@allure.description('Search for Playwright docs.')
+@allure.severity(allure.severity_level.NORMAL)
+@allure.label('owner', 'Viacheslav')
 def test_simple_search(page: Page):
     page.goto('https://playwright.dev/python/docs/input')
 
@@ -15,7 +20,11 @@ def test_simple_search(page: Page):
 
 
 @pytest.mark.ui()
-def test_example(page: Page) -> None:
+@allure.title('Test Add 1 TODO action')
+@allure.description('Simply add 1 TODO item.')
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.label('owner', 'Viacheslav')
+def test_add_1_action(page: Page) -> None:
     page.goto('https://demo.playwright.dev/todomvc/')
     page.get_by_placeholder('What needs to be done?').click()
     page.get_by_placeholder('What needs to be done?').fill('action 1')

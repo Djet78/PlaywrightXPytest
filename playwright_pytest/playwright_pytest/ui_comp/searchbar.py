@@ -1,3 +1,5 @@
+import allure
+
 from playwright.sync_api import Page
 
 
@@ -13,6 +15,7 @@ class PlaywrightSearch:
     def search_field(self):
         return self.driver.get_by_placeholder('Search docs')
 
+    @allure.step('Get search for term')
     def search_for(self, term: str):
         self.header_btn_locator.click()
         self.search_field.fill(term)
