@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is launched regression tests 🚀
 on: workflow_dispatch
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
