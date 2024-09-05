@@ -1,11 +1,11 @@
 import allure
-import pytest
 
 from playwright.sync_api import Page, expect
 from playwright_pytest.playwright_pytest.ui_comp import PlaywrightSearch
 
 
-@pytest.mark.ui()
+@allure.suite('UI')
+@allure.feature('Docs search')
 @allure.title('Test Simple Search')
 @allure.description('Search for Playwright docs.')
 @allure.severity(allure.severity_level.NORMAL)
@@ -19,7 +19,8 @@ def test_simple_search(page: Page):
     expect(s_bar.search_field).to_have_value('Playwright')
 
 
-@pytest.mark.ui()
+@allure.suite('UI')
+@allure.feature('Docs search')
 @allure.title('Test Add 1 TODO action')
 @allure.description('Simply add 1 TODO item.')
 @allure.severity(allure.severity_level.CRITICAL)

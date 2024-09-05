@@ -26,8 +26,7 @@ jobs:
         pipx install poetry
         poetry install
     - name: Install browsers
-      run: |
-        poetry run playwright install --with-deps
+      run: poetry run playwright install --with-deps
 
     - name: Load test report history
       uses: actions/checkout@v4
@@ -38,8 +37,7 @@ jobs:
         path: gh-pages
 
     - name: Test with pytest
-      run: |
-        poetry run pytest -c ./pytest.ini
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.ini
 
     - name: Build test report
       uses: simple-elf/allure-report-action@v1.7
