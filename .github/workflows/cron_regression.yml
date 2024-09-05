@@ -13,19 +13,49 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/actions/setup-python@v5
+
+# Java dependencies
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: zulu
+        java-version: 21
+
+# Python dependencies
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
       with:
         python-version: "3.12"
-    - name: Install dependencies
+    - name: Install poetry and dependencies
       run: |
-        sudo apt install pipx
         pipx ensurepath
         pipx install poetry
         poetry install
     - name: Install browsers
-      run: |
-        playwright install --with-deps
+      run: poetry run playwright install --with-deps
+
     - name: Test with pytest
-      run: |
-        poetry run pytest
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.ini
+
+    - name: Get Allure history
+      uses: actions/checkout@v4
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Build test report
+      uses: simple-elf/allure-report-action@v1.7
+      if: always()
+      with:
+        allure_results: allure-results
+        allure_history: allure-history
+
+    - name: Deploy report to Github Pages
+      uses: peaceiris/actions-gh-pages@v2
+      if: always()
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history

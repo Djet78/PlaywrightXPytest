@@ -20,8 +20,8 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 1. Download Java 21: https://www.oracle.com/java/technologies/downloads/
 2. Set `JAVA_HOME` environment variable, point it to the java root folder.
 3. Download and unpack latest allure release: https://github.com/allure-framework/allure2/releases
-1. Or using Scoop: https://allurereport.org/docs/gettingstarted-installation/#install-via-scoop-for-windows
-4. Into `PATH` - add path to the allure.bat file. Ex: `*\allure\allure-2.24.1\bin`
+4. Or using Scoop: https://allurereport.org/docs/gettingstarted-installation/#install-via-scoop-for-windows
+5. Into `PATH` - add path to the allure.bat file. Ex: `*\allure\allure-2.24.1\bin`
 
 
 ### 2. Install Poetry
@@ -32,12 +32,10 @@ Playwright in combination with Pytest test framework, and <report_tool> retortin
 
 ### 3. Configure local project: 
 1. Clone the repo
-
-[//]: # (2. Run `git submodules update --init --recursive`)
-3. In the project root dir - run `poetry install`
-4. Activate created env: `.\.venv\Scripts\activate`
-5. Apply pre-commit hooks: `pre-commit install`
-6. Install webdrivers `playwright install`
+2. In the project root dir - run `poetry install`
+3. Activate created env: `.\.venv\Scripts\activate`
+4. Apply pre-commit hooks: `pre-commit install`
+5. Install webdrivers `playwright install`
 
 
 ---
@@ -57,8 +55,7 @@ Execute tests
 7. `pytest --slowmo 3000` - Adds a ms delay between webdriver actions. 
 8. `pytest --device="Galaxy S III"` - Emulate devices settings and orientation. List of devices: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
 9. `pytest -m "<scope>"` - Run all tests that marked by <scope>.
-10. `pytest --alluredir allure-results` - Run test and collect results data for allure.
-11. `allure serve allure-results` - Launch allure result local server.
+10. `allure serve allure-results` - Launch allure result local server.
 
 Playwright
 1. `playwright codegen <url>` - start tests recording tool on specified web page's url.
@@ -88,11 +85,13 @@ Playwright
       9. Manual and Automation tool, have a free plan: https://zebrunner.com/testing-platform
       10. https://pypi.org/project/pytest-zebrunner/
    11. JSON (maybe for exporting into other formats) - https://pypi.org/project/pytest-json-report/
-3. Configure CI/CD for app, using GitHub actions: https://playwright.dev/python/docs/ci#github-actions
-   4. Trace recording could be useful for CI: https://playwright.dev/python/docs/trace-viewer
-   5. Actions syntax: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows
-   6. Creds management: https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
-   7. Context data reference: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#context-availability
-   7. Try to split crossbrowser runs using GitHub actions: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow
+
+[//]: # (3. Configure CI/CD for app, using GitHub actions: https://playwright.dev/python/docs/ci#github-actions)
+[//]: # (   4. Trace recording could be useful for CI: https://playwright.dev/python/docs/trace-viewer)
+[//]: # (   5. Actions syntax: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)
+[//]: # (   6. Creds management: https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+[//]: # (   7. Context data reference: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#context-availability)
+[//]: # (   7. Try to split crossbrowser runs using GitHub actions: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow)
 4. Create a github job, to manually trigger the desired suite of tests.
-5. 
+   5. Add ability to set desired browser
+   6. 
