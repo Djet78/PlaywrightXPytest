@@ -2,7 +2,7 @@
 
 [//]: # ([![pre-commit]&#40;https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&#41;]&#40;https://github.com/pre-commit/pre-commit&#41;)
 
-# Playwright X Pytest Allure
+# Playwright X Pytest X Allure
 Playwright in combination with Pytest test framework, and <report_tool> retorting example.
 
 #### Used python main packages:
