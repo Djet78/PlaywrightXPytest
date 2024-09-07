@@ -1,1 +1,1 @@
-[]
+[{"uid":"176bdf7ae0ea65f4","name":"Test Add 1 TODO action","time":{"start":1725676750493,"stop":1725676750801,"duration":308},"status":"passed","severity":"critical"},{"uid":"b18466efd25606db","name":"Test Simple Search","time":{"start":1725676743863,"stop":1725676750157,"duration":6294},"status":"failed","severity":"normal"}]
