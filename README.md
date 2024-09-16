@@ -100,3 +100,4 @@ Playwright
 4. Create a github job, to manually trigger the desired suite of tests.
    5. Add ability to set desired browser
    6. Add ability to set desired env
+4. Add playwright trace zip file for failing tests in report https://github.com/actions/upload-artifact

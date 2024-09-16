@@ -19,6 +19,16 @@ class TestSearch:
 
         expect(s_bar.search_field).to_have_value('Playwright')
 
+    @allure.title('Test Fail Example')
+    @allure.description('Search for Bad Value.')
+    @allure.severity(allure.severity_level.NORMAL)
+    def test_fail_example(self, page: Page):
+        page.goto('https://playwright.dev/python/docs/input')
+
+        s_bar = PlaywrightSearch(page)
+        s_bar.search_for('Playwright')
+        expect(s_bar.search_field).to_have_value('Bad Value')
+
     @allure.title('Test Add 1 TODO action')
     @allure.description('Simply add 1 TODO item.')
     @allure.severity(allure.severity_level.CRITICAL)

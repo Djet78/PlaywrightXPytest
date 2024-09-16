@@ -1,29 +1,16 @@
 import platform
+from slugify import slugify
 
 import allure
 import pytest
+from playwright.sync_api import Page
 
 from playwright_pytest.env_configurator import EnvConfigurator
 from playwright_pytest.utils import add_pytest_res_evn_file
 
 
-from allure_commons.types import AttachmentType
-
-
 @pytest.hookimpl
 def pytest_addoption(parser):
-    parser.addoption(
-        '--driver',
-        action='store',
-        default='chrome',
-        choices=['chrome', 'firefox', 'edge'],
-        help="""
-        Pytest will run tests against specified browser. Available options:
-         * chrome (default)
-         * firefox
-         * edge
-         """,
-    )
     parser.addoption(
         '--env',
         action='store',
@@ -45,9 +32,11 @@ def pytest_runtest_makereport(call, item):  # noqa: ARG001
     # Get screenshot of a failed test
     result = yield
     result = result.get_result()
-    driver = item.funcargs.get('selenium')
-    if result.failed and driver:
-        allure.attach(driver.get_screenshot_as_png(), 'UI Screenshot', attachment_type=AttachmentType.PNG)
+    page: Page = item.funcargs['page']
+    if result.failed and page:
+        allure.attach(
+            page.screenshot(type='png'), name=f'{slugify(item.nodeid)}.png', attachment_type=allure.attachment_type.PNG
+        )
 
 
 @pytest.fixture(scope='session')
@@ -59,7 +48,7 @@ def browser_context_args(browser_context_args):
 @allure.title('Process env configs.')
 @pytest.fixture(scope='session', autouse=True)
 def configurator(request):
-    # Proccess env data once. All other EnvConfigurator() calls will return the same instance.
+    # Process env data once. All other EnvConfigurator() calls will return the same instance.
     return EnvConfigurator(request.config.getoption('--env'))
 
 
