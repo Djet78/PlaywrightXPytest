@@ -19,9 +19,9 @@ def pytest_addoption(parser):
         choices=['chrome', 'firefox', 'edge'],
         help="""
         Pytest will run tests against specified browser. Available options:
-         -- chrome (default)
-         -- firefox
-         -- edge
+         * chrome (default)
+         * firefox
+         * edge
          """,
     )
     parser.addoption(
@@ -31,15 +31,15 @@ def pytest_addoption(parser):
         choices=['dev', 'test', 'stage', 'prod'],
         help="""
         Specify test environment for further utilization in test. Available options:
-         -- dev (default)
-         -- test
-         -- stage
-         -- prod
+         * dev (default)
+         * test
+         * stage
+         * prod
          """,
     )
 
 
-# TODO uodate for playwrigh
+# TODO update for playwright
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(call, item):  # noqa: ARG001
     # Get screenshot of a failed test
