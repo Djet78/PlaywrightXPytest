@@ -1,7 +1,7 @@
 import os
 
 
-def add_pytest_res_evn_file(pytest_config, key, value):
+def set_allure_env_variable(pytest_config, key, value):
     alluredir = pytest_config.getoption('--alluredir')
     if not os.path.exists(alluredir):
         os.mkdir(alluredir)
