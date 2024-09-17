@@ -1,1 +1,1 @@
-[{"values":["chromium"],"name":"DRIVER"},{"values":["128.0.6613.18"],"name":"BROWSER_VERSION"},{"values":["Linux-6.5.0-1025-azure-x86_64-with-glibc2.35"],"name":"OS"},{"values":["6.5.0-1025-azure"],"name":"OS_VERSION"},{"values":["dev"],"name":"ENVIRONMENT"},{"values":["https://Djet78.github.io/PlaywrightXPytest"],"name":"URL"}]
+[{"values":["Linux-6.5.0-1025-azure-x86_64-with-glibc2.35"],"name":"OS"},{"values":["6.5.0-1025-azure"],"name":"OS_VERSION"},{"values":["prod"],"name":"ENVIRONMENT"},{"values":["https://Djet78.github.io/PlaywrightXPytest"],"name":"URL"}]
