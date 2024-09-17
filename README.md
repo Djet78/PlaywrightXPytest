@@ -55,7 +55,12 @@ Execute tests
 7. `pytest --slowmo 3000` - Adds a ms delay between webdriver actions. 
 8. `pytest --device="Galaxy S III"` - Emulate devices settings and orientation. List of devices: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
 9. `pytest -m "<scope>"` - Run all tests that marked by <scope>.
-10. `allure serve allure-results` - Launch allure result local server.
+10. `pytest -c "<path_to_config_file.ini>"` - Execute tests with specific conf file. `pytest.ini` by default.
+
+Generate reports
+`allure serve allure-results` - Launch allure result on local server. Uses `allure-results` folder for report.
+`allure generate` - Generate HTML report, based on results from `allure-results` folder.
+`allure open` - open HTML report from `allure-report` folder.
 
 Playwright
 1. `playwright codegen <url>` - start tests recording tool on specified web page's url.
@@ -94,4 +99,9 @@ Playwright
 [//]: # (   7. Try to split crossbrowser runs using GitHub actions: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow)
 4. Create a github job, to manually trigger the desired suite of tests.
    5. Add ability to set desired browser
-   6. 
+   6. Add ability to set desired env
+   7. Add ability to set desired suite 
+7. Add 1 parametrized test sample https://allurereport.org/docs/pytest-reference/
+8. Create API suite, move conftest files in appropriate folders
+9. Get to know, how to use categories, and add proper exception messages
+10. 
