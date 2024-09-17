@@ -100,4 +100,8 @@ Playwright
 4. Create a github job, to manually trigger the desired suite of tests.
    5. Add ability to set desired browser
    6. Add ability to set desired env
-7. Add 1 parametrized test sample https://allurereport.org/docs/pytest-reference/ 
+   7. Add ability to set desired suite 
+7. Add 1 parametrized test sample https://allurereport.org/docs/pytest-reference/
+8. Create API suite, move conftest files in appropriate folders
+9. Get to know, how to use categories, and add proper exception messages
+10. 

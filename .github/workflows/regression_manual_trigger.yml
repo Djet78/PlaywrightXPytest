@@ -1,6 +1,28 @@
 name: Regression manual launch
 run-name: ${{ github.actor }} is launched regression tests 🚀
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Log level'
+        required: true
+        default: 'chromium'
+        type: choice
+        options:
+        - chromium
+        - firefox
+        - webkit
+        - all
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        default: 'test'
+        type: choice
+        options:
+          - dev
+          - test
+          - stage
+          - prod
 
 permissions:
   contents: write
@@ -10,8 +32,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-
 # Java dependencies
     - name: Set up JDK
       uses: actions/setup-java@v4
@@ -32,9 +52,23 @@ jobs:
     - name: Install browsers
       run: poetry run playwright install --with-deps
 
-    - name: Test with pytest
-      run: poetry run pytest ./playwright_pytest/ -c ./pytest.ini
 
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Test in all browsers
+      if: ${{ inputs.browser == 'all'}}
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser chromium --browser firefox --browser webkit
+
+    - name: Test in ${{ inputs.browser }}
+      if: ${{ ! inputs.browser == 'all'}}
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser ${{ inputs.browser }}
+
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Get Allure history
       uses: actions/checkout@v4
       if: always()
@@ -57,4 +91,3 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
-

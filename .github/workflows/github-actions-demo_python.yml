@@ -33,7 +33,7 @@ jobs:
       run: poetry run playwright install --with-deps
 
     - name: Test with pytest
-      run: poetry run pytest ./playwright_pytest/ -c ./pytest.ini
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.regression.ini
 
     - name: Get Allure history
       uses: actions/checkout@v4
