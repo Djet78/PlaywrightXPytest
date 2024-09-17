@@ -60,6 +60,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Debug data
+      run: |
+        echo ${{ inputs.browser }}
+        echo ${{ inputs.environment }}
+
     - name: Test in all browsers
       if: ${{ inputs.browser == 'all'}}
       run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser chromium --browser firefox --browser webkit
