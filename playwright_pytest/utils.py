@@ -9,12 +9,9 @@ def set_allure_env_variable(pytest_config, key, value):
     env_data = f'{key.upper()}={value}\n'
 
     allure_env_path = os.path.join(alluredir, 'environment.properties')
-    if not os.path.exists(allure_env_path):
-        with open(allure_env_path, 'w') as _f:
-            _f.write(env_data)
-    else:
-        with open(allure_env_path, 'a') as _f:
-            _f.write(env_data)
+    write_mode = 'a' if os.path.exists(allure_env_path) else 'w'
+    with open(allure_env_path, write_mode) as _f:
+        _f.write(env_data)
 
 
 def singleton(class_):
