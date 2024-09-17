@@ -61,9 +61,7 @@ def configurator(request: pytest.FixtureRequest) -> EnvConfigurator:
 
 @allure.title('Launch webdriver')
 @pytest.fixture(scope='session', autouse=True)
-def _set_allure_env_variables(browser: Browser, configurator: EnvConfigurator, request: pytest.FixtureRequest) -> None:
-    set_allure_env_variable(request.config, 'DRIVER', browser.browser_type.name)
-    set_allure_env_variable(request.config, 'BROWSER_VERSION', browser.version)
+def _set_allure_env_variables(configurator: EnvConfigurator, request: pytest.FixtureRequest) -> None:
     set_allure_env_variable(request.config, 'OS', platform.platform())
     set_allure_env_variable(request.config, 'OS_VERSION', platform.release())
     set_allure_env_variable(request.config, 'ENVIRONMENT', configurator.env)
@@ -75,3 +73,9 @@ def page(page: Page) -> Page:
     """Start custom traceback recording."""
     page.context.tracing.start(screenshots=True, snapshots=True, sources=True)
     yield page  # noqa: PT022
+
+
+# TODO check how it would work with API
+@pytest.fixture(autouse=True)
+def _set_driver_allure_tag(browser: Browser) -> None:
+    allure.dynamic.suite(f'{browser.browser_type.name} {browser.version}')

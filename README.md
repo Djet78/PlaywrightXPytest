@@ -58,7 +58,7 @@ Execute tests
 10. `pytest -c "<path_to_config_file.ini>"` - Execute tests with specific conf file. `pytest.ini` by default.
 
 Generate reports
-`allure serve allure-results` - Launch allure result on local server. Use `allure-results` folder for report.
+`allure serve allure-results` - Launch allure result on local server. Uses `allure-results` folder for report.
 `allure generate` - Generate HTML report, based on results from `allure-results` folder.
 `allure open` - open HTML report from `allure-report` folder.
 
@@ -100,4 +100,4 @@ Playwright
 4. Create a github job, to manually trigger the desired suite of tests.
    5. Add ability to set desired browser
    6. Add ability to set desired env
-4. Add playwright trace zip file for failing tests in report https://github.com/actions/upload-artifact
+7. Add 1 parametrized test sample https://allurereport.org/docs/pytest-reference/ 

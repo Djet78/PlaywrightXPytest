@@ -4,9 +4,9 @@ from playwright.sync_api import Page, expect
 from playwright_pytest.playwright_pytest.ui_comp import PlaywrightSearch
 
 
-@allure.suite('UI')
 @allure.feature('Docs search')
 @allure.label('owner', 'Viacheslav')
+@allure.tag('UI')
 class TestSearch:
     @allure.title('Test Simple Search')
     @allure.description('Search for Playwright docs.')
