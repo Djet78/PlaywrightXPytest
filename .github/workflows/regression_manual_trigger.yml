@@ -59,11 +59,11 @@ jobs:
 # Execute tests
     - name: Test in all browsers
       if: inputs.browser == 'all'
-      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser chromium --browser firefox --browser webkit
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --env ${{ inputs.environment }} --browser chromium --browser firefox --browser webkit
 
     - name: Test in ${{ inputs.browser }}
       if: inputs.browser != 'all'
-      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser ${{ inputs.browser }}
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --env ${{ inputs.environment }} --browser ${{ inputs.browser }}
 
 # Publish
     - name: Get Allure history
