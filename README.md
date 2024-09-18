@@ -54,7 +54,7 @@ Execute tests
 6. `pytest --numprocesses 2` - Run tests in parallel. Recommend to use no more than half of logical CPU cores.
 7. `pytest --slowmo 3000` - Adds a ms delay between webdriver actions. 
 8. `pytest --device="Galaxy S III"` - Emulate devices settings and orientation. List of devices: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
-9. `pytest -m "<scope>"` - Run all tests that marked by <scope>.
+9. `pytest --allure-label <label>=<value, set>` - Run all tests that marked by `pytest --allure-label tag=API`.
 10. `pytest -c "<path_to_config_file.ini>"` - Execute tests with specific conf file. `pytest.ini` by default.
 
 Generate reports
@@ -96,8 +96,7 @@ Playwright
 [//]: # (   7. Context data reference: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#context-availability)
 [//]: # (   7. Try to split crossbrowser runs using GitHub actions: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow)
 4. Create a github job, to manually trigger the desired suite of tests.
-   7. Add ability to set desired suite 
+   7. Add ability to set desired suite (allure label filtering)
 7. Add 1 parametrized test sample https://allurereport.org/docs/pytest-reference/
-8. Create API suite, move conftest files in appropriate folders
+8. Add authentication in API tests
 9. Get to know, how to use categories, and add proper exception messages
-10. 

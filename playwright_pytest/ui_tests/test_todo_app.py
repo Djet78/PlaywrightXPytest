@@ -1,7 +1,7 @@
 import allure
 
 from playwright.sync_api import Page, expect
-from playwright_pytest.playwright_pytest.ui_comp import PlaywrightSearch
+from playwright_pytest.components.ui_comp import PlaywrightSearch
 
 
 @allure.feature('Docs search')
