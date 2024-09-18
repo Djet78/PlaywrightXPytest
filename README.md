@@ -68,9 +68,7 @@ Playwright
 
 
 ## TODO
- 
-1. Add some sample tests using Playwright
-   2. For API: https://playwright.dev/python/docs/api-testing
+
 2. Find reporting tools for playwright
    2. Allure (using allure-pytest) - https://github.com/microsoft/playwright-python/issues/1265
    3. Lambdatest (Seems it have a freemium plan)- https://www.lambdatest.com/support/docs/pytest-on-hyperexecute/
@@ -98,8 +96,6 @@ Playwright
 [//]: # (   7. Context data reference: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#context-availability)
 [//]: # (   7. Try to split crossbrowser runs using GitHub actions: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow)
 4. Create a github job, to manually trigger the desired suite of tests.
-   5. Add ability to set desired browser
-   6. Add ability to set desired env
    7. Add ability to set desired suite 
 7. Add 1 parametrized test sample https://allurereport.org/docs/pytest-reference/
 8. Create API suite, move conftest files in appropriate folders
