@@ -23,6 +23,11 @@ on:
           - test
           - stage
           - prod
+      tags:
+        description: 'Allure filter spec to run selected set of tests'
+        required: false
+        default: '--allure-label tag=API,UI'
+        type: 'string'
 
 permissions:
   contents: write
@@ -59,11 +64,11 @@ jobs:
 # Execute tests
     - name: Test in all browsers
       if: inputs.browser == 'all'
-      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --env ${{ inputs.environment }} --browser chromium --browser firefox --browser webkit
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --env ${{ inputs.environment }} --browser chromium --browser firefox --browser webkit ${{ inputs.tags }}
 
     - name: Test in ${{ inputs.browser }}
       if: inputs.browser != 'all'
-      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --env ${{ inputs.environment }} --browser ${{ inputs.browser }}
+      run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --env ${{ inputs.environment }} --browser ${{ inputs.browser }} ${{ inputs.tags }}
 
 # Publish
     - name: Get Allure history
