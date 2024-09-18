@@ -29,15 +29,15 @@ permissions:
 
 jobs:
   establish-job-runner:
-    name: Get a  containerised runner name to use for this workflow
-    runs-on: ubuntu-latest
+    name: Get a containerised runner name to use for this workflow
+    runs-on: [ubuntu-latest, windows-latest]
     outputs:
       established-runner: ${{ runner.name }}
     steps:
       - run: echo "selected runner = ${{ runner.name }}"
 
   build:
-    name: Build the test project dependencies
+    name: Build project deps
     needs: establish-job-runner
     runs-on: ${{ needs.establish-job-runner.outputs.established-runner }}
 
@@ -83,7 +83,7 @@ jobs:
       run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser ${{ inputs.browser }}
 
   publish:
-    name: Execute test automation
+    name: Publish report
     needs:
       - establish-job-runner
       - test
