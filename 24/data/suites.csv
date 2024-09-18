@@ -1,4 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Mon Sep 16 14:52:36 GMT 2024","Mon Sep 16 14:52:43 GMT 2024","7022","playwright_pytest.ui_tests","UI","TestSearch","","","Test Fail Example","Search for Bad Value."
-"passed","Mon Sep 16 14:52:36 GMT 2024","Mon Sep 16 14:52:37 GMT 2024","691","playwright_pytest.ui_tests","UI","TestSearch","","","Test Add 1 TODO action","Simply add 1 TODO item."
-"failed","Mon Sep 16 14:52:36 GMT 2024","Mon Sep 16 14:52:43 GMT 2024","6970","playwright_pytest.ui_tests","UI","TestSearch","","","Test Simple Search","Search for Playwright docs."

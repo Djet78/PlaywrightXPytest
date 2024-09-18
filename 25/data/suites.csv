@@ -1,5 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"skipped","Tue Sep 17 10:10:30 GMT 2024","Tue Sep 17 10:10:30 GMT 2024","0","","","","","","Test Fail Example 2","Search for Bad Value 2."
-"skipped","Tue Sep 17 10:10:30 GMT 2024","Tue Sep 17 10:10:30 GMT 2024","0","","","","","","Test Add 1 TODO action","Simply add 1 TODO item."
-"skipped","Tue Sep 17 10:10:30 GMT 2024","Tue Sep 17 10:10:30 GMT 2024","0","","","","","","Test Simple Search","Search for Playwright docs."
-"skipped","Tue Sep 17 10:10:30 GMT 2024","Tue Sep 17 10:10:30 GMT 2024","0","","","","","","Test Fail Example 1","Search for Bad Value 1."
