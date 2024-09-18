@@ -28,22 +28,14 @@ permissions:
   contents: write
 
 jobs:
-  establish-job-runner:
-    name: Get a containerised runner name to use for this workflow
-    runs-on: [ubuntu-latest, windows-latest]
-    outputs:
-      established-runner: ${{ runner.name }}
-    steps:
-      - run: echo "selected runner = ${{ runner.name }}"
-
-  build:
-    name: Build project deps
-    needs: establish-job-runner
-    runs-on: ${{ needs.establish-job-runner.outputs.established-runner }}
+  run:
+    name: Build, execute tests and publish
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
 
+# Build test project
 # Java dependencies
     - name: Set up JDK
       uses: actions/setup-java@v4
@@ -64,16 +56,7 @@ jobs:
     - name: Install browsers
       run: poetry run playwright install --with-deps
 
-
-  test:
-    name: Execute test automation
-    needs:
-      - establish-job-runner
-      - build
-    runs-on: ${{ needs.establish-job-runner.outputs.established-runner }}
-
-    steps:
-
+# Execute tests
     - name: Test in all browsers
       if: inputs.browser == 'all'
       run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser chromium --browser firefox --browser webkit
@@ -82,14 +65,7 @@ jobs:
       if: inputs.browser != 'all'
       run: poetry run pytest ./playwright_pytest/ -c ./pytest.manual.ini --evn ${{ inputs.environment }} --browser ${{ inputs.browser }}
 
-  publish:
-    name: Publish report
-    needs:
-      - establish-job-runner
-      - test
-    runs-on: ${{ needs.establish-job-runner.outputs.established-runner }}
-
-    steps:
+# Publish
     - name: Get Allure history
       uses: actions/checkout@v4
       if: always()
