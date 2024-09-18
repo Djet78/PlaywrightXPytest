@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Sep 18 09:57:16 GMT 2024","Wed Sep 18 09:57:18 GMT 2024","1702","playwright_pytest.ui_tests","firefox 128.0","TestSearch","","","Test Add 1 TODO action","Simply add 1 TODO item."
+"failed","Wed Sep 18 09:57:17 GMT 2024","Wed Sep 18 09:57:25 GMT 2024","8512","playwright_pytest.ui_tests","firefox 128.0","TestSearch","","","Test Fail Example 1","Search for Bad Value 1."
+"passed","Wed Sep 18 09:57:17 GMT 2024","Wed Sep 18 09:57:20 GMT 2024","3229","playwright_pytest.ui_tests","firefox 128.0","TestSearch","","","Test Simple Search","Search for Playwright docs."
+"failed","Wed Sep 18 09:57:17 GMT 2024","Wed Sep 18 09:57:25 GMT 2024","7901","playwright_pytest.ui_tests","firefox 128.0","TestSearch","","","Test Fail Example 2","Search for Bad Value 2."
