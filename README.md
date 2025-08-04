@@ -2,8 +2,8 @@
 
 [//]: # ([![pre-commit]&#40;https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&#41;]&#40;https://github.com/pre-commit/pre-commit&#41;)
 
-# Playwright X Pytest X GitHub actions X Allure
-Playwright in combination with Pytest test framework, and <report_tool> reporting example.
+# Playwright X Pytest X GitHub Actions X Allure
+Playwright in combination with Pytest test framework, and Allure reporting example build using GitHub Actions workflows.
 
 #### Used python main packages:
 1. `playwright` - Test runner.
