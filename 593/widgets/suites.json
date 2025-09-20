@@ -1,1 +1,0 @@
-{"total":6,"items":[{"uid":"58579f8de9e75c0e33a08a0e1dad7257","name":"playwright_pytest.ui_tests","statistic":{"failed":3,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":5}},{"uid":"ec26c1d3b5cecee1675e9ef1f5a7caef","name":"playwright_pytest.api_tests","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
